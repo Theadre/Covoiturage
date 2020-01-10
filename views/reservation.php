@@ -1,15 +1,25 @@
 <p>Réservation d'une annonce</p>
 <form method="post" action="ReservationPage.php">
     <label for="name">date : </label>
-    <input type="text" name="date">
+    <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>">
     <br />
     <br />
     <label for="name">idUtilisateur : </label>
-    <input type="text" name="idUtilisateur">
+    <select name="idUtilisateur" id="">
+        <?php foreach ($users as $e) { ?>
+            <option value="<?php echo $e->id ?>"><?php echo $e->nom ?></option>
+        <?php } ?>
+    </select>
+    <br />
+    <br />
     <br />
     <br />
     <label for="name">idAnnonce : </label>
-    <input type="text" name="idAnnonce">
+    <select name="idAnnonce" id="">
+        <?php foreach ($annonces as $e) { ?>
+            <option value="<?php echo $e->id ?>"><?php echo $e->id ?></option>
+        <?php } ?>
+    </select>
     <br />
     <br />
     <label for="name">status : </label>

@@ -1,5 +1,8 @@
 <?php
+require('services/DatabaseService.php');
 require('services/ReservationService.php');
+require('services/AnnonceService.php');
+require('services/UserService.php');
 class ReservationController
 {
     public function index(): string
@@ -22,11 +25,12 @@ class ReservationController
         }
 
         $list = $service->getAll();
-        // test en attender mes camarades dont cree le service
-        $users = [
-            0 => ['id' => 1, 'name' => 'me'],
-            1 => ['id' => 2, 'name' => 'you'],
-        ];
+       // all users for select
+       $userService = new UserService();
+       $users = $userService->getAll();
+       // all Annoce for select
+       $annonceService = new AnnonceService();
+       $annonces = $annonceService->getAll();
         $html = require('views/reservation.php');
         return $html;
     }

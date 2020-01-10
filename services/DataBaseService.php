@@ -57,7 +57,7 @@ class DataBaseService
     public function ajouterCommentaireAnnonce($o): bool
     {
         $isOk = false;
-        $sql = 'INSERT INTO commentaireannonce (texte, annonceAssocie, datePublication, utilisateurAuteur) VALUES (:texte, :annonceAssocie, :datePublication, :utilisateurAuteur)';
+        $sql = 'INSERT INTO commentaireannonce (texte, utilisateurAuteur, datePublication, annonceAssocie) VALUES (:texte, :utilisateurAuteur, :datePublication, :annonceAssocie)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($o);
 
@@ -66,16 +66,19 @@ class DataBaseService
 
     public function ajouterAnnonce($o): bool
     {
+        // echo '<pre>' . var_dump($o) . '</pre>';
+        
         $isOk = false;
-        $sql = 'INSERT INTO annonce (idConducteur, villeA, dateA, villeD, dateD, nPlace, prix, voiture, commentaires, auteur) VALUES (:(idConducteur, :villeA, :dateA, :villeD, :dateD, :nPlace, :prix, :voiture, :commentaires, :auteur))';
+        $sql = 'INSERT INTO annonce (id, idConducteur, villeA, dateA, villeD, dateD, nPlace, prix, voiture, auteur) VALUES (:id, :idConducteur, :villeA, :dateA, :villeD, :dateD, :nPlace, :prix, :voiture, :auteur)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($o);
-
+        // echo $query->fullQuery();
         return $isOk;
     }
 
     public function ajouterReservation($o): bool
     {
+        var_dump($o);
         $isOk = false;
         $sql = 'INSERT INTO reservation (date, idUtilisateur, idAnnonce, status) VALUES (:date, :idUtilisateur, :idAnnonce, :status)';
         $query = $this->connection->prepare($sql);

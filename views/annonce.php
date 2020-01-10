@@ -1,43 +1,52 @@
 <p>Creation d'une annonce</p>
 <form method="post" action="AnnoncePage.php">
-    <label for="name">idConducteur : </label>
-    <input type="text" name="idConducteur">
-    <br />
-    <br />
+    
     <label for="name">ville A : </label>
-    <input type="text" name="villeA">
+    <input type="text" name="villeA" value="ville 2">
     <br />
     <br />
     <label for="name">date A : </label>
-    <input type="text" name="dateA">
+    <input type="date" name="dateA" value="<?php echo date('Y-m-d'); ?>">
     <br />
     <br />
     <label for="name">ville D : </label>
-    <input type="text" name="villeD">
+    <input type="text" name="villeD" value="ville 1">
     <br />
     <br />
     <label for="name">date D : </label>
-    <input type="text" name="dateD">
+    <input type="date" name="dateD" value="<?php echo date('Y-m-d'); ?>">
     <br />
     <br />
     <label for="name">nombre de places : </label>
-    <input type="text" name="nPlace">
+    <input type="number" name="nPlace" value="4">
     <br />
     <br />
     <label for="name">prix : </label>
-    <input type="text" name="prix">
+    <input type="number" name="prix" value="1000">
     <br />
     <br />
-    <label for="name">voiture : </label>
-    <input type="text" name="voiture">
+    <label for="name">Voiture : </label>
+    <select name="voiture" id="">
+        <?php foreach ($voitures as $e) { ?>
+            <option value="<?php echo $e->id ?>"><?php echo $e->marque ?></option>
+        <?php } ?>
+    </select>
     <br />
     <br />
-    <label for="name">commentaires : </label>
-    <input type="text" name="commentaires">
+    <label for="name">Conducteur : </label>
+    <select name="idConducteur" id="">
+        <?php foreach ($users as $e) { ?>
+            <option value="<?php echo $e->id ?>"><?php echo $e->nom ?></option>
+        <?php } ?>
+    </select>
     <br />
     <br />
     <label for="name">auteur : </label>
-    <input type="text" name="auteur">
+    <select name="auteur" id="">
+        <?php foreach ($users as $e) { ?>
+            <option value="<?php echo $e->id ?>"><?php echo $e->nom ?></option>
+        <?php } ?>
+    </select>
     <br />
     <br />
     <input type="submit" value="Créer">
@@ -55,7 +64,7 @@
         <td>nombre de places</td>
         <td>prix</td>
         <td>voiture</td>
-        <td>commentaires</td>
+        <td>idConducteur</td>
         <td>auteur</td>
 
     </tr>
@@ -69,7 +78,8 @@
             <td><?php echo $e->nPlace; ?></td>
             <td><?php echo $e->prix; ?></td>
             <td><?php echo $e->voiture; ?></td>
-            <td><?php echo $e->commentaires; ?></td>
+            <td><?php echo $e->idConducteur; ?></td>
+            <td><?php echo $e->auteur; ?></td>
         </tr>
     <?php } ?>
 </table>

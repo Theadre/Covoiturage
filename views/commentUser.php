@@ -6,15 +6,17 @@
     <br />
     <label for="name">utilisateurAuteur : </label>
     <select name="utilisateurAuteur" id="">
-        <option value="1">user 1</option>
-        <option value="2">user 2</option>
+        <?php foreach ($users as $e) { ?>
+            <option value="<?php echo $e->id ?>"><?php echo $e->nom ?></option>
+        <?php } ?>
     </select>
     <br />
     <br />
     <label for="name">utilisateurAssocie : </label>
     <select name="utilisateurAssocie" id="">
-        <option value="1">user 1</option>
-        <option value="2">user 2</option>
+        <?php foreach ($users as $e) { ?>
+            <option value="<?php echo $e->id ?>"><?php echo $e->nom ?></option>
+        <?php } ?>
     </select>
     <br />
     <br />

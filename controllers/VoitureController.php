@@ -1,4 +1,5 @@
 <?php
+require('services/DatabaseService.php');
 require('services/VoitureService.php');
 class VoitureController
 {

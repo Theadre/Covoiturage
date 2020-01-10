@@ -1,5 +1,5 @@
 <?php
-require('DatabaseService.php');
+// require('DatabaseService.php');
 class AnnonceService
 {
     public function add($data): bool
@@ -19,7 +19,7 @@ class AnnonceService
         $list = $service->getAll('Annonce');
 
         foreach ($list as $element) {
-            $o = new Annonce($element['id'], $element['idConducteur'], $element['villeA'], $element['dateA'], $element['villeD'], $element['dateD'], $element['nPlace'], $element['prix'], $element['voiture'], $element['commentaires'], $element['auteur']);
+            $o = new Annonce($element['id'], $element['idConducteur'], $element['villeA'], $element['dateA'], $element['villeD'], $element['dateD'], $element['nPlace'], $element['prix'], $element['voiture'], $element['auteur']);
             $objects[] = $o;
         }
 

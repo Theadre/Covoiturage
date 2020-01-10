@@ -1,5 +1,4 @@
 <?php
-require('DatabaseService.php');
 class CommentUserService
 {
     public function add($data): bool

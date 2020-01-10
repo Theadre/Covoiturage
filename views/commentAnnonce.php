@@ -1,5 +1,5 @@
 <p>Creation d'un commentaire annonce</p>
-<form method="post" action="CommentAnnoncePage.php">
+<form method="post" action="CommentaireAnnoncePage.php">
     <label for="name">texte : </label>
     <textarea name="texte" rows="5" cols="40">exemple texte</textarea>
     <br />

@@ -1,4 +1,6 @@
 <?php
+require('services/DatabaseService.php');
+require('services/VoitureService.php');
 require('services/UserService.php');
 class UserController
 {
