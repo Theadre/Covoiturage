@@ -21,7 +21,9 @@ class Autoloader
      */
     static function autoload($class)
     {
-        require 'class/' . $class . '.php';
+        // require '/' . $class . '.php';
+        require 'models/' . $class . '.php';
+        // // require 'services/' . $class . '.php';
     }
 
 }
